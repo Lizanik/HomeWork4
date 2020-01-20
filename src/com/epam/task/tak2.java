@@ -1,18 +1,26 @@
-
 package com.epam.task;
+
+import java.util.Scanner;
+
 class tak2 {
-    public static void main(String[] args) {
-        final String s1 = "How are How";
-        outer:for(int i = 0; i < s1.length(); i++)
-        {
-            for(int j = 0; j < s1.length(); j++)
-            {
-                if(s1.charAt(i) == s1.charAt(j) && i != j)
-                {
-                    continue outer;
-                }
+    public static String uniqueCharacters(String test){
+        String temp = "";
+        for (int i = 0; i < test.length(); i++){
+            char current = test.charAt(i);
+            if (temp.indexOf(current) < 0){
+                temp = temp + current;
+            } else {
+                temp = temp.replace(String.valueOf(current), "");
             }
-            System.out.println(s1.charAt(i));
         }
+
+        System.out.println(temp + " ");
+        return temp;
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        String test = scanner.nextLine();
+        String str= uniqueCharacters( test);
     }
 }
